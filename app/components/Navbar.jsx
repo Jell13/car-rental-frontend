@@ -1,43 +1,17 @@
 "use client"
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 
 const Navbar = () => {
 
-    const router = usePathname();
-
-    const links = [
-        {
-            id: 1,
-            title: 'Home',
-            route: '/'
-        },
-        {
-            id: 2,
-            title: 'Search',
-            route: '/Search'
-        },
-        {
-            id: 3,
-            title: 'Add',
-            route: '/Add'
-        }
-    ]
-
   return (
-    <div className='bg-slate-200 h-full w-full'>
+    <div className='bg-light h-20 w-full z-10'>
       <div className='w-full h-full py-4 px-20 flex items-center justify-between'>
-        <h1>CarHub</h1>
-        <nav className='flex gap-4'>
-            {links.map(({id, title, route}) => (
-                <div className='relative group'>
-                    <Link key={id} className='' href={route}>{title}</Link>
-                    <span className={`absolute top-5 left-0 bg-black h-[1px] ${router === route ? 'w-full' : 'w-0'} group-hover:w-full duration-300`}>&nbsp;</span>
-                </div>
-            ))}
-        </nav>
+        <Image src='logo.svg' width={120} height={120}/>
+        <button className='p-4 flex justify-center items-center rounded-md bg-blue-500 text-light hover:bg-light border-2 hover:border-blue-500 duration-300 hover:text-blue-500'>Sign In</button>
       </div>
     </div>
   )
